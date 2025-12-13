@@ -1,41 +1,26 @@
-"use client";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Navbar() {
-    const links = ["About", "Experience", "Work", "Contact"];
-
     return (
-        <nav className="fixed w-full top-0 z-50 bg-navy/90 backdrop-blur-md px-6 py-4 shadow-lg">
-            <div className="max-w-6xl mx-auto flex justify-between items-center">
-                <motion.div
-                    initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                    className="text-green font-bold text-2xl"
-                >
-                    &lt;KD /&gt;
-                </motion.div>
+        <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+            <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent cursor-pointer">
+                    Naveena.
+                </h1>
 
-                <div className="hidden md:flex gap-8 items-center">
-                    {links.map((link, index) => (
-                        <motion.div
-                            key={link}
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            <Link href={`#${link.toLowerCase()}`} className="text-lightSlate hover:text-green text-sm font-mono">
-                                <span className="text-green mr-1">0{index + 1}.</span>
-                                {link}
-                            </Link>
-                        </motion.div>
-                    ))}
-                    <motion.a
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-                        href="/resume.pdf"
-                        className="border border-green text-green px-4 py-2 rounded text-sm hover:bg-green/10 transition"
-                    >
-                        Resume
-                    </motion.a>
+                <div className="flex items-center gap-6">
+                    <ul className="hidden md:flex gap-8 text-slate-300 font-medium">
+                        <li className="hover:text-cyan-400 transition cursor-pointer"><Link href="#about">About</Link></li>
+                        <li className="hover:text-cyan-400 transition cursor-pointer"><Link href="#skills">Skills</Link></li>
+                        <li className="hover:text-cyan-400 transition cursor-pointer"><Link href="#projects">Projects</Link></li>
+                        <li className="hover:text-cyan-400 transition cursor-pointer"><Link href="#contact">Contact</Link></li>
+                    </ul>
+
+                    <div className="flex gap-4">
+                        <a href="https://github.com" target="_blank" className="text-xl text-slate-400 hover:text-white transition"><FaGithub /></a>
+                        <a href="https://linkedin.com" target="_blank" className="text-xl text-slate-400 hover:text-white transition"><FaLinkedin /></a>
+                    </div>
                 </div>
             </div>
         </nav>
